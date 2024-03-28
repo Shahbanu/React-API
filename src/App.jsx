@@ -1,8 +1,8 @@
 
-
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Login from "./Component/Login"
 import Table from './Component/Table'
+import View from './Component/View'
 function App() {
 
 
@@ -10,7 +10,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Login/> }/>
-      <Route path='/Table' element={<Table/>}/>
+      <Route path='/table' element={<Table/>}/>
+      <Route path='/view/:id' element={<View/>}/>
 
     </Routes>
     
