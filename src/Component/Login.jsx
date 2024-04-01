@@ -3,7 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import axios from 'axios';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-// import { useHistory } from 'react-router-dom';
+
 
 const LoginApi = () => {
 
@@ -11,7 +11,7 @@ const LoginApi = () => {
   const navigate =useNavigate()
   const [password, setPassword] = useState('');
   const [ , setIsLoggedIn] = useState(false);
-  // const history = useHistory();
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +26,8 @@ const LoginApi = () => {
       if(res.data.authorisation.token){
         //store the token in the local storage
         localStorage.setItem('token', res.data.authorisation.token); 
+        localStorage.setItem('user',JSON.stringify(res.data.user))
+        console.log(res?.data.user);
         navigate('/Table')
         //update isLoggedIn state
         setIsLoggedIn(true)
